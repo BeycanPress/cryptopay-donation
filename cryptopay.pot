@@ -1,0 +1,151 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CryptoPay Donation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-08 17:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.2\n"
+"X-Domain: cryptopay"
+
+#: app/DonateBox/DonateBoxWidget.php:15
+msgid "# CryptoPay Donation Box"
+msgstr ""
+
+#: app/Settings.php:34
+msgid "Add new"
+msgstr ""
+
+#: app/Lang.php:13
+msgid "Amount to be donated"
+msgstr ""
+
+#. Author of the plugin
+msgid "BeycanPress"
+msgstr ""
+
+#: views/donate-box.php:4
+msgid "Choose donate amount"
+msgstr ""
+
+#. Name of the plugin
+msgid "CryptoPay Donation"
+msgstr ""
+
+#: app/DonateBox/DonateBoxWidget.php:28
+msgid "CryptoPay Donation Box"
+msgstr ""
+
+#: app/Settings.php:26
+msgid "Currency"
+msgstr ""
+
+#: app/Lang.php:10
+msgid "Donate amount"
+msgstr ""
+
+#: app/Settings.php:33
+msgid "Donate amounts"
+msgstr ""
+
+#: app/Lang.php:11
+msgid "Donate currency"
+msgstr ""
+
+#: app/Lang.php:12
+msgid "Donate now"
+msgstr ""
+
+#: app/Lang.php:18
+msgid "Donate sent"
+msgstr ""
+
+#. Description of the plugin
+msgid "Donation add-on for CryptoPay"
+msgstr ""
+
+#: app/Lang.php:15
+msgid "Donation address:"
+msgstr ""
+
+#: app/Lang.php:14
+msgid "Donation rejected!"
+msgstr ""
+
+#: app/Settings.php:14
+msgid "Donation settings"
+msgstr ""
+
+#: app/Lang.php:16 app/Lang.php:19
+msgid "Donation timed out!"
+msgstr ""
+
+#: app/Loader.php:31
+msgid "Donation transactions"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://beycanpress.com"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://beycanpress.com/"
+msgstr ""
+
+#: app/Settings.php:73
+msgid ""
+"It allows you to add a donation box at the beginning or end of all the pages "
+"you share."
+msgstr ""
+
+#: app/Settings.php:61
+msgid ""
+"It allows you to add a donation box at the beginning or end of all the posts "
+"you share."
+msgstr ""
+
+#: app/Settings.php:63 app/Settings.php:75
+msgid "Not show"
+msgstr ""
+
+#: views/donate-box.php:26
+msgid "Select network"
+msgstr ""
+
+#: app/Settings.php:19
+msgid "Shorcode"
+msgstr ""
+
+#: app/Settings.php:64 app/Settings.php:76
+msgid "Show in begin"
+msgstr ""
+
+#: app/Settings.php:65 app/Settings.php:77
+msgid "Show in end"
+msgstr ""
+
+#: app/Settings.php:71
+msgid "Show in pages"
+msgstr ""
+
+#: app/Settings.php:59
+msgid "Show in posts"
+msgstr ""
+
+#: app/Settings.php:37
+msgid "Value"
+msgstr ""
+
+#: app/DonateBox/DonateBoxWidget.php:17
+msgid ""
+"With this widget you can add a box to your site to receive donations with "
+"cryptocurrencies."
+msgstr ""
