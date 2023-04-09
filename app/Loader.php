@@ -22,9 +22,6 @@ class Loader
 
 
         Hook::addFilter('transaction_status_donation', fn() => 'completed');
-        Hook::addAction('uninstall', function() {
-            delete_option(strtolower('widget_'.DonateBox\DonateBoxWidget::class));
-        });
         
         if (is_admin()) {
             new TransactionPage(

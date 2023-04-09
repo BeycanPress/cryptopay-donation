@@ -32,7 +32,7 @@ class DonateBox
         $this->addAddonScript('js/main.js');
         $this->addAddonStyle('css/main.css');
 
-        echo Services::preparePaymentProcess('donation', false, [], false);
+        echo Services::preparePaymentProcess('donation', false);
 
         return $this->addonView('donate-box', [
             'currency' => $this->setting('donationCurrency'),
