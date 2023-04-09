@@ -28,6 +28,7 @@ class Loader
                 esc_html__('Donation transactions', 'cryptopay'),
                 'donation_transactions',
                 'donation',
+                3,
                 [],
                 false,
                 ['orderId', 'status', 'updatedAt']
