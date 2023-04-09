@@ -2,6 +2,7 @@
 	font-family: jost, serif;
 	max-width: 430px;
 	margin: 0px auto;
+    margin-bottom: 50px;
 }
 
 .cp-donation-container .donation-box {
@@ -11,6 +12,12 @@
     position: relative;
     box-sizing: border-box;
     border-radius: 6px;
+}
+
+.cp-donation-container.theme-dark .donation-box {
+    background-color: #141D20;
+    border: 1px solid #141D20;
+    box-shadow: 0 0 20px 0 rgb(20 29 32 / 50%);
 }
 
 .cp-donation-container .donation-box .title {
@@ -44,6 +51,17 @@
 	background-color: #409eff;
 }
 
+.cp-donation-container.theme-dark .donation-box .donate-button {
+    background: #0d1315!important;
+    border-color: #0d1315!important;
+}
+
+.cp-donation-container.theme-dark .donation-box .donate-button:hover {
+    background: #0b1012!important;
+    border-color: #0b1012!important;
+}
+
+
 .cp-donation-container .donation-box .choose-donate {
     display: flex;
     align-items: center;
@@ -61,10 +79,14 @@
 	justify-content: center;
 }
 
+.cp-donation-container.theme-dark .donation-box .choose-donate {
+    color: #A8AEB6;
+    background: #050b13cf;
+}
+
 .cp-donation-container .donation-box .choose-donate:not(:last-child) {
 	margin-bottom: 0px;
 }
-
 
 .cp-donation-container .donation-box .choose-donate:hover {
     background: #d0d2d4;
@@ -73,6 +95,15 @@
 .cp-donation-container .donation-box .choose-donate.selected {
     color: #fff;
     background: #409eff;
+}
+
+.cp-donation-container.theme-dark .donation-box .choose-donate:hover {
+    background: #03060b;
+}
+
+.cp-donation-container.theme-dark .donation-box .choose-donate.selected {
+    color: #A8AEB6;
+    background: #03060b;
 }
 
 .cp-donation-container .donation-box .choose-donate .set-amount {
@@ -96,6 +127,11 @@
 	-o-transition: all 0.15s ease-out;
 	transition: all 0.15s ease-out;
     padding: 0px!important;
+    border-radius: 0px!important;
+}
+
+.cp-donation-container.theme-dark .donation-box .choose-donate .set-amount {
+	border-bottom: 2px dashed #A8AEB6!important;
 }
 
 .cp-donation-container .donation-box .choose-donate .set-amount::-webkit-outer-spin-button,
@@ -112,4 +148,9 @@
 .cp-donation-container .donation-box .choose-donate.selected .set-amount {
     color: #fff;
 	border-bottom: 2px dashed #fff!important;
+}
+
+.cp-donation-container.theme-dark .donation-box .choose-donate.selected .set-amount {
+    color: #A8AEB6;
+	border-bottom: 2px dashed #A8AEB6!important;
 }

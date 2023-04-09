@@ -36,7 +36,8 @@ class DonateBox
 
         return $this->addonView('donate-box', [
             'currency' => $this->setting('donationCurrency'),
-            'amounts' => $this->setting('donationDonateAmounts')
+            'amounts' => $this->setting('donationDonateAmounts'),
+            'theme' => $this->setting('theme'),
         ]);
     }
 }

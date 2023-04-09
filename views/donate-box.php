@@ -1,5 +1,5 @@
 
-<div class="cp-donation-container" data-currency="<?php echo esc_attr($currency) ?>">
+<div class="cp-donation-container theme-<?php echo esc_attr($theme) ?>" data-currency="<?php echo esc_attr($currency) ?>">
     <div class="donation-box">
         <div class="title"><?php echo esc_html__('Choose donate amount', 'cryptopay') ?></div>
         
