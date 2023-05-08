@@ -27,7 +27,7 @@ class Integrations
             // Register TinyMCE button
             add_action('admin_head', function() {
                 add_filter('mce_external_plugins', function($pluginArray) {
-                    $pluginArray['beycanpress/cryptopay-donation-box'] = $this->pluginUrl . 'assets/js/tinymce.js';
+                    $pluginArray['beycanpress/cryptopay-donation-box'] = plugin_dir_url('cryptopay-donation/index.php') . 'assets/js/tinymce.js';
                     return $pluginArray;
                 });
                 add_filter('mce_buttons', function($buttons) {

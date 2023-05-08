@@ -16,7 +16,7 @@ class Settings
             'fields' => array(
                 array(
                     'id'      => 'donationShortCode',
-                    'title'   => esc_html__('Shorcode', 'cryptopay'),
+                    'title'   => esc_html__('Shortcode', 'cryptopay'),
                     'type'    => 'content',
                     'content' => '[cryptopay-donation-box]'
                 ),
