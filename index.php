@@ -10,7 +10,7 @@ namespace BeycanPress\CryptoPay;
  * Author: BeycanPress
  * Author URI:  https://beycanpress.com
  * License:     GPLv3
- * License URI: https://www.gnu.org/licenses/gpl-3.0.tr.html
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: cryptopay
  * Tags: Cryptopay, Cryptocurrency, WooCommerce, WordPress, MetaMask, Trust, Binance, Wallet, Ethereum, Bitcoin, Binance smart chain, Payment, Plugin, Gateway, Moralis, Converter, API, coin market cap, CMC, Crypto donate
  * Requires at least: 5.0
@@ -33,7 +33,7 @@ add_action('plugins_loaded', function() {
             {
                 require __DIR__ . '/vendor/autoload.php';
 
-                Services::registerAddOn('donation');
+                Services::registerAddon('donation');
 
                 if ($this->setting('license')) {
                     new Donation\Loader();

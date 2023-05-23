@@ -6,7 +6,7 @@ use BeycanPress\CryptoPay\Models\AbstractTransaction;
 
 class DonationTransaction extends AbstractTransaction 
 {
-    public static $addOn = 'donation';
+    public static $addon = 'donation';
     
     public function __construct()
     {

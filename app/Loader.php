@@ -23,6 +23,7 @@ class Loader
                 '1x' => plugin_dir_url(dirname(__FILE__, 2) . '/index.php') . '/assets/images/icon-128x128.png',
             ]
         ]);
+
         (new Models\DonationTransaction())->createTable();
 
         Hook::addFilter('models', function($models) {
@@ -30,7 +31,6 @@ class Loader
                 'donation' => new Models\DonationTransaction()
             ]);
         });
-
 
         Hook::addFilter('transaction_status_donation', fn() => 'completed');
         
