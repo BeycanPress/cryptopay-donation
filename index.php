@@ -4,8 +4,8 @@ namespace BeycanPress\CryptoPay;
 
 /**
  * Plugin Name: CryptoPay Donation
- * Version:     1.0.0
- * Plugin URI:  https://beycanpress.com/
+ * Version:     1.0.1
+ * Plugin URI:  https://beycanpress.com/cryptopay
  * Description: Donation add-on for CryptoPay
  * Author: BeycanPress
  * Author URI:  https://beycanpress.com
@@ -31,9 +31,10 @@ add_action('plugins_loaded', function() {
         {
             public function __construct()
             {
-                require __DIR__ . '/vendor/autoload.php';
-
                 Services::registerAddon('donation');
+                $this->registerAddon('donation', __FILE__);
+                
+                require __DIR__ . '/vendor/autoload.php';
 
                 if ($this->setting('license')) {
                     new Donation\Loader();

@@ -29,12 +29,12 @@ class DonateBox
             return array_merge($lang, Lang::get());
         });
 
-        $this->addAddonScript('js/main.js');
-        $this->addAddonStyle('css/main.css');
+        $this->addons->donation->addScript('main.js');
+        $this->addons->donation->addStyle('main.css');
 
         echo Services::preparePaymentProcess('donation', false);
 
-        return $this->addonView('donate-box', [
+        return $this->addons->donation->view('donate-box', [
             'currency' => $this->setting('donationCurrency'),
             'amounts' => $this->setting('donationDonateAmounts'),
             'theme' => $this->setting('theme'),

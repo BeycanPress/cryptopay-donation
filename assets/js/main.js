@@ -33,6 +33,7 @@
             CryptoPay.callbacks.transactionSent = () => {
                 donation.show();
                 CryptoPayApp.reset();
+                donation.find('.set-amount').val('');
             }
 
             donation.hide();
