@@ -30,11 +30,17 @@
                 currency,
             });
 
-            CryptoPay.callbacks.transactionSent = () => {
-                donation.show();
-                CryptoPayApp.reset();
-                donation.find('.set-amount').val('');
-            }
+            CryptoPayApp.events.add('transactionSent', () => {
+                cpHelpers.successPopup(CryptoPay.lang.transactionSent, `
+                    <a href="${tx.getUrl()}" target="_blank">
+                        ${CryptoPay.lang.openInExplorer}
+                    </a>
+                `).then(() => {
+                    donation.show();
+                    CryptoPayApp.reset();
+                    donation.find('.set-amount').val('');
+                });
+            });
 
             donation.hide();
         });

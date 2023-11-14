@@ -4,7 +4,7 @@ namespace BeycanPress\CryptoPay;
 
 /**
  * Plugin Name: CryptoPay Donation
- * Version:     1.0.1
+ * Version:     1.0.2
  * Plugin URI:  https://beycanpress.com/cryptopay/
  * Description: Donation add-on for CryptoPay
  * Author:      BeycanPress LLC
@@ -14,7 +14,7 @@ namespace BeycanPress\CryptoPay;
  * Text Domain: cryptopay
  * Tags:        Cryptopay, Cryptocurrency, WooCommerce, WordPress, MetaMask, Trust, Binance, Wallet, Ethereum, Bitcoin, Binance smart chain, Payment, Plugin, Gateway, Moralis, Converter, API, coin market cap, CMC, Crypto donate
  * Requires at least: 5.0
- * Tested up to: 6.2
+ * Tested up to: 6.4.1
  * Requires PHP: 7.4
 */
 

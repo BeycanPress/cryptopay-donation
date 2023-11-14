@@ -21,7 +21,7 @@ class Integrations
                 global $pagenow;
                 $dependencies = $pagenow === 'widgets.php' ? ['wp-edit-widgets'] : ['wp-editor'];
 
-                $this->addAddonScript('js/gutenberg.js', array_merge($dependencies, ['jquery', 'wp-element', 'wp-blocks']));
+                $this->addons->donation->addScript('gutenberg.js', array_merge($dependencies, ['jquery', 'wp-element', 'wp-blocks']));
             });    
 
             // Register TinyMCE button
