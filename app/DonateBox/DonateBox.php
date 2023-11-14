@@ -32,12 +32,13 @@ class DonateBox
         $this->addons->donation->addScript('main.js');
         $this->addons->donation->addStyle('main.css');
 
-        echo Services::preparePaymentProcess('donation', false);
+        $cryptopay = Services::preparePaymentProcess('donation', false);
 
         return $this->addons->donation->view('donate-box', [
             'currency' => $this->setting('donationCurrency'),
             'amounts' => $this->setting('donationDonateAmounts'),
             'theme' => $this->setting('theme'),
+            'cryptopay' => $cryptopay,
         ]);
     }
 }

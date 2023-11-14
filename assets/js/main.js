@@ -30,7 +30,7 @@
                 currency,
             });
 
-            CryptoPayApp.events.add('transactionSent', () => {
+            CryptoPayApp.events.add('transactionSent', (n, c, tx) => {
                 cpHelpers.successPopup(CryptoPay.lang.transactionSent, `
                     <a href="${tx.getUrl()}" target="_blank">
                         ${CryptoPay.lang.openInExplorer}
