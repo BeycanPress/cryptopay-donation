@@ -4,7 +4,7 @@ namespace BeycanPress\CryptoPay;
 
 /**
  * Plugin Name: CryptoPay Donation
- * Version:     1.0.2
+ * Version:     1.1.0
  * Plugin URI:  https://beycanpress.com/cryptopay/
  * Description: Donation add-on for CryptoPay
  * Author:      BeycanPress LLC
