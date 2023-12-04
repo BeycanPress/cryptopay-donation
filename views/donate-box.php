@@ -23,7 +23,13 @@
         
         <div class="donate-button">
             <i class="far fa-project-diagram"></i> 
-            <?php echo esc_html__('Select network', 'cryptopay') ?>
+            <?php 
+                if ($this->setting('mode') == 'network') {
+                    echo esc_html__('Select network', 'cryptopay');
+                } else {
+                    echo esc_html__('Select currency', 'cryptopay');
+                }
+            ?>
         </div>
     </div>
 </div>
