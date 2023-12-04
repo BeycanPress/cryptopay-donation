@@ -24,6 +24,7 @@ class Loader
             ]
         ]);
 
+        Hook::addFilter('apply_discount_donation', '__return_false');
         Hook::addFilter('models', function($models) {
             return array_merge($models, [
                 'donation' => new Models\DonationTransaction()
