@@ -36,7 +36,6 @@ class Loader
         if (is_admin()) {
             new TransactionPage(
                 esc_html__('Donation transactions', 'cryptopay'),
-                'donation_transactions',
                 'donation',
                 3,
                 [],
