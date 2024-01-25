@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BeycanPress\CryptoPay\Donation\DonateBox;
 
-use \BeycanPress\CryptoPay\Services;
-use \BeycanPress\CryptoPay\Donation\Lang;
-use \BeycanPress\CryptoPay\PluginHero\Hook;
-use \BeycanPress\CryptoPay\PluginHero\Helpers;
+use BeycanPress\CryptoPay\Services;
+use BeycanPress\CryptoPay\Donation\Lang;
+use BeycanPress\CryptoPay\PluginHero\Hook;
+use BeycanPress\CryptoPay\PluginHero\Helpers;
 
 class DonateBox
 {
@@ -14,30 +16,36 @@ class DonateBox
     /**
      * @var string
      */
-    private $receiver;
+    private string $receiver;
 
+    /**
+     * @return void
+     */
     public function __construct()
     {
-        add_action('init', function() {
+        add_action('init', function (): void {
             add_shortcode('cryptopay-donation-box', array($this, 'init'));
         });
     }
 
-    public function init()
+    /**
+     * @return string
+     */
+    public function init(): string
     {
-        Hook::addFilter('lang', function($lang) {
+        Hook::addFilter('lang', function ($lang) {
             return array_merge($lang, Lang::get());
         });
 
-        $this->addons->donation->addScript('main.js');
-        $this->addons->donation->addStyle('main.css');
+        Helpers::getAddon('donation')->addScript('main.js');
+        Helpers::getAddon('donation')->addStyle('main.css');
 
         $cryptopay = Services::preparePaymentProcess('donation', false);
 
-        return $this->addons->donation->view('donate-box', [
-            'currency' => $this->setting('donationCurrency'),
-            'amounts' => $this->setting('donationDonateAmounts'),
-            'theme' => $this->setting('theme'),
+        return Helpers::getAddon('donation')->view('donate-box', [
+            'currency' => Helpers::getSetting('donationCurrency'),
+            'amounts' => Helpers::getSetting('donationDonateAmounts'),
+            'theme' => Helpers::getSetting('theme'),
             'cryptopay' => $cryptopay,
         ]);
     }

@@ -1,4 +1,7 @@
-<?php echo $cryptopay; ?>
+<?php 
+    use BeycanPress\CryptoPay\Helpers;
+    echo $cryptopay;
+?>
 <div class="cp-donation-container theme-<?php echo esc_attr($theme) ?>" data-currency="<?php echo esc_attr($currency) ?>">
     <div class="donation-box">
         <div class="title"><?php echo esc_html__('Choose donate amount', 'cryptopay') ?></div>
@@ -24,7 +27,7 @@
         <div class="donate-button">
             <i class="far fa-project-diagram"></i> 
             <?php 
-                if ($this->setting('mode') == 'network') {
+                if (Helpers::getSetting('mode') == 'network') {
                     echo esc_html__('Select network', 'cryptopay');
                 } else {
                     echo esc_html__('Select currency', 'cryptopay');

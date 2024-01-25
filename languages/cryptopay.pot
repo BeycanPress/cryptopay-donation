@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CryptoPay Donation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-08 17:41+0000\n"
+"POT-Creation-Date: 2024-01-24 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.4; wp-6.2\n"
+"X-Loco-Version: 2.6.6; wp-6.4.2\n"
 "X-Domain: cryptopay"
 
 #: app/DonateBox/DonateBoxWidget.php:15
@@ -29,7 +29,7 @@ msgid "Amount to be donated"
 msgstr ""
 
 #. Author of the plugin
-msgid "BeycanPress"
+msgid "BeycanPress LLC"
 msgstr ""
 
 #: views/donate-box.php:4
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Donation timed out!"
 msgstr ""
 
-#: app/Loader.php:31
+#: app/Loader.php:38
 msgid "Donation transactions"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgid "https://beycanpress.com"
 msgstr ""
 
 #. URI of the plugin
-msgid "https://beycanpress.com/"
+msgid "https://beycanpress.com/cryptopay/"
 msgstr ""
 
 #: app/Settings.php:73
@@ -116,12 +116,16 @@ msgstr ""
 msgid "Not show"
 msgstr ""
 
-#: views/donate-box.php:26
+#: views/donate-box.php:30
+msgid "Select currency"
+msgstr ""
+
+#: views/donate-box.php:28
 msgid "Select network"
 msgstr ""
 
 #: app/Settings.php:19
-msgid "Shorcode"
+msgid "Shortcode"
 msgstr ""
 
 #: app/Settings.php:64 app/Settings.php:76

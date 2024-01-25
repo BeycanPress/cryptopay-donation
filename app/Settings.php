@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+declare(strict_types=1);
+
+// @phpcs:disable Generic.Files.LineLength
 
 namespace BeycanPress\CryptoPay\Donation;
 
@@ -7,10 +11,13 @@ use BeycanPress\CryptoPay\PluginHero\Setting;
 
 class Settings
 {
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        Setting::createSection(array(    
-            'id'     => 'donate', 
+        Setting::createSection(array(
+            'id'     => 'donate',
             'title'  => esc_html__('Donation settings', 'cryptopay'),
             'icon'   => 'fas fa-donate',
             'fields' => array(

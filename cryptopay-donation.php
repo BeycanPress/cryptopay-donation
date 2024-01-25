@@ -1,6 +1,12 @@
-<?php 
+<?php
 
-namespace BeycanPress\CryptoPay;
+declare(strict_types=1);
+
+defined('ABSPATH') || exit;
+
+// @phpcs:disable PSR1.Files.SideEffects
+// @phpcs:disable PSR12.Files.FileHeader
+// @phpcs:disable Generic.Files.LineLength
 
 /**
  * Plugin Name: CryptoPay Donation
@@ -19,28 +25,27 @@ namespace BeycanPress\CryptoPay;
 */
 
 use BeycanPress\CryptoPay\Loader;
-use BeycanPress\CryptoPay\Services;
+use BeycanPress\CryptoPay\Helpers;
 use BeycanPress\CryptoPay\PluginHero\Hook;
 use BeycanPress\CryptoPay\PluginHero\Plugin;
 
-add_action('plugins_loaded', function() {
+add_action('plugins_loaded', function (): void {
 
     if (class_exists(Loader::class)) {
-
+        // @phpcs:ignore
         class Donation extends Plugin
         {
+            /**
+             * Constructor
+             */
             public function __construct()
             {
-                Services::registerAddon('donation');
-                $this->registerAddon('donation', __FILE__);
-                
+                Helpers::registerAddon('donation', __FILE__);
+
                 require __DIR__ . '/vendor/autoload.php';
 
-                if ($this->setting('license')) {
-                    new Donation\Loader();
-                }
-
-                Hook::addAction("settings", function() {
+                new Donation\Loader();
+                Hook::addAction("settings", function (): void {
                     new Donation\Settings();
                 }, 90);
             }

@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BeycanPress\CryptoPay\Donation;
 
 class Lang
 {
-    public static function get() : array
+    /**
+     * @return array<string,string>
+     */
+    public static function get(): array
     {
         return [
             "orderAmount" => esc_html__('Donate amount', 'cryptopay'),
@@ -19,5 +24,4 @@ class Lang
             "paymentTimedOut" => esc_html__('Donation timed out!', 'cryptopay'),
         ];
     }
-
 }
