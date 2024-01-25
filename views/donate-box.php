@@ -35,4 +35,5 @@
             ?>
         </div>
     </div>
+    <cp-powered-by></cp-powered-by>
 </div>

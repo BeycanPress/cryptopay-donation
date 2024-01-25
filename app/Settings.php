@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace BeycanPress\CryptoPay\Donation;
 
-use BeycanPress\CryptoPay\Services;
+use BeycanPress\CryptoPay\Constants;
 use BeycanPress\CryptoPay\PluginHero\Setting;
 
 class Settings
@@ -31,7 +31,7 @@ class Settings
                     'id'    => 'donationCurrency',
                     'type'  => 'select',
                     'title' => esc_html__('Currency', 'cryptopay'),
-                    'options' => Services::getCountryCurrencies(),
+                    'options' => Constants::getCountryCurrencies(),
                     'default' => 'USD'
                 ),
                 array(

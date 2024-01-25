@@ -1,5 +1,6 @@
 (($) => {
     $(document).ready(() => {
+        const cryptopay = $("#cryptopay");
         const donation = $(".cp-donation-container");
 
         donation.find('.choose-donate').click(function(e) {
@@ -11,13 +12,22 @@
             $(this).parent().attr("data-value", $(this).val());
         });
 
+        let startedApp;
+        const autoStarter = (order, params) => {
+            if (!startedApp) {
+                startedApp = window.CryptoPayApp.start(order, params);
+            } else {
+                startedApp.reStart(order, params);
+            }
+        }
+
         donation.find('.donate-button').click(function() {
             let currency = donation.data('currency').toUpperCase();
             let amount = parseFloat(donation.find('.choose-donate.selected').attr('data-value'));
 
             if (!amount) {
                 return Swal.fire({
-                    title: CryptoPay.lang.donationAmount,
+                    title: window.CryptoPayLang.donationAmount,
                     icon: 'info',
                     didOpen: () => {
                         Swal.hideLoading();
@@ -25,24 +35,25 @@
                 })
             }
 
-            let CryptoPayApp = CryptoPay.startPayment({
-                amount,
-                currency,
-            });
+            autoStarter({
+                amount, currency
+            })
 
-            CryptoPayApp.events.add('transactionSent', (n, o, tx) => {
-                cpHelpers.successPopup(CryptoPay.lang.transactionSent, `
-                    <a href="${tx.getUrl()}" target="_blank">
-                        ${CryptoPay.lang.openInExplorer}
+            window.CryptoPayApp.events.add('transactionCreated', ({transaction}) => {
+                cpHelpers.successPopup(window.CryptoPayLang.transactionSent, `
+                    <a href="${transaction.getUrl()}" target="_blank">
+                        ${window.CryptoPayLang.openInExplorer}
                     </a>
                 `).then(() => {
                     donation.show();
-                    CryptoPayApp.reset();
+                    cryptopay.hide();
+                    startedApp.store.payment.$reset();
                     donation.find('.set-amount').val('');
                 });
             });
 
             donation.hide();
+            cryptopay.show();
         });
     });
 })(jQuery);

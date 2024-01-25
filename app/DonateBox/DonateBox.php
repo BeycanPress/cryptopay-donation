@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace BeycanPress\CryptoPay\Donation\DonateBox;
 
-use BeycanPress\CryptoPay\Services;
+use BeycanPress\CryptoPay\Helpers;
+use BeycanPress\CryptoPay\Payment;
 use BeycanPress\CryptoPay\Donation\Lang;
 use BeycanPress\CryptoPay\PluginHero\Hook;
 
@@ -29,13 +30,13 @@ class DonateBox
             return array_merge($lang, Lang::get());
         });
 
-        Helpers::getAddon('donation')->addScript('main.js');
-        Helpers::getAddon('donation')->addStyle('main.css');
+        $cryptopay = (new Payment('donation'))->setConfirmation(false)->html();
 
-        $cryptopay = Services::preparePaymentProcess('donation', false);
+        Helpers::getAddon('donation')->addStyle('main.css');
+        Helpers::getAddon('donation')->addScript('main.js');
 
         return Helpers::getAddon('donation')->view('donate-box', [
-            'currency' => Helpers::getSetting('donationCurrency'),
+            'currency' => Helpers::getSetting('donationCurrency', 'USD'),
             'amounts' => Helpers::getSetting('donationDonateAmounts'),
             'theme' => Helpers::getSetting('theme'),
             'cryptopay' => $cryptopay,

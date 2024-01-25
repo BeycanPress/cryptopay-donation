@@ -40,13 +40,14 @@ add_action('plugins_loaded', function (): void {
              */
             public function __construct()
             {
+                Helpers::registerIntegration('donation');
                 Helpers::registerAddon('donation', __FILE__);
 
                 require __DIR__ . '/vendor/autoload.php';
 
-                new Donation\Loader();
+                new BeycanPress\CryptoPay\Donation\Loader();
                 Hook::addAction("settings", function (): void {
-                    new Donation\Settings();
+                    new BeycanPress\CryptoPay\Donation\Settings();
                 }, 90);
             }
         }
