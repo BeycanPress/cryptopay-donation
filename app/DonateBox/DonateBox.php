@@ -7,17 +7,9 @@ namespace BeycanPress\CryptoPay\Donation\DonateBox;
 use BeycanPress\CryptoPay\Services;
 use BeycanPress\CryptoPay\Donation\Lang;
 use BeycanPress\CryptoPay\PluginHero\Hook;
-use BeycanPress\CryptoPay\PluginHero\Helpers;
 
 class DonateBox
 {
-    use Helpers;
-
-    /**
-     * @var string
-     */
-    private string $receiver;
-
     /**
      * @return void
      */
