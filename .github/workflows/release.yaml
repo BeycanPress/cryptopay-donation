@@ -1,19 +1,17 @@
 name: Create Release and Upload Zip
 
-# workflow_dispatch: if you want to create a release manually
-on: #workflow_dispatch
+on:
   release:
-    types: [released]
-    branches:
+    types:
+      - released
+    branches: 
       - master
-    # created: if you want to create a release for every tag
-    # prereleased: if you want to create a release for prerelease
-    # published: if you want to create a release for every tag that is published
 
 env:
   RELEASE_ID: 10
   WP_MIN_VERSION: 5.0
   WP_TESTED_VERSION: 6.4.2
+  FOLDER_NAME: cryptopay-donation
   RELEASE_ZIP_NAME: cryptopay-donation.zip
   IGNORED_FILES_LIST: |
     .git
@@ -21,7 +19,13 @@ env:
     .vscode
     .gitignore
     .gitattributes
+    src
+    gulpfile.mjs
     phpcs.xml
+    package.json
+    package-lock.json
+    composer.json
+    composer.lock
 
 jobs:
   release:
@@ -60,8 +64,12 @@ jobs:
           else
             echo "No matching release asset found for $RELEASE_ZIP_NAME. Creating a new one..."
             
+            mkdir -p "$FOLDER_NAME"
             IGNORED_FILES=$(echo "$IGNORED_FILES_LIST" | tr '\n' ' ')
-            git ls-files | grep -v -E "$(echo $IGNORED_FILES | tr ' ' '|')" | zip -@ $RELEASE_ZIP_NAME
+            rsync -av --exclude-from <(echo "$IGNORED_FILES_LIST") ./ "$FOLDER_NAME/"
+            rm -r "$FOLDER_NAME/$FOLDER_NAME"
+            zip -r "$RELEASE_ZIP_NAME" "$FOLDER_NAME"
+            rm -r "$FOLDER_NAME"
 
             upload_url=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
@@ -91,3 +99,7 @@ jobs:
           -F "file=@$RELEASE_ZIP_NAME;type=application/zip" \
           -H "Authorization: Bearer ${{ secrets.UPDATER_API_SECRET }}" \
           https://updater.beycanpress.net/?rest_route=/fx-api/update-releases
+
+      - name: Delete ZIP
+        run: |
+          rm "$RELEASE_ZIP_NAME"
