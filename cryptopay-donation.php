@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
 
 /**
  * Plugin Name: CryptoPay Donation
- * Version:     1.1.0
+ * Version:     1.2.0
  * Plugin URI:  https://beycanpress.com/cryptopay/
  * Description: Donation add-on for CryptoPay
  * Author:      BeycanPress LLC
@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
  * Tags:        Cryptopay, Cryptocurrency, WooCommerce, WordPress, MetaMask, Trust, Binance, Wallet, Ethereum, Bitcoin, Binance smart chain, Payment, Plugin, Gateway, Moralis, Converter, API, coin market cap, CMC, Crypto donate
  * Requires at least: 5.0
  * Tested up to: 6.4.2
- * Requires PHP: 7.4
+ * Requires PHP: 8.1
 */
 
 use BeycanPress\CryptoPay\Loader;

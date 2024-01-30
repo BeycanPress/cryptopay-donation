@@ -16,11 +16,13 @@ class Loader
      */
     public function __construct()
     {
+        $pluginData = Helpers::getAddon('donation')->getData();
+
         new Updater([
-            'requires' => '5.0',
-            'requires_php' => '8.1',
-            'plugin_file' =>  'cryptopay-donation/cryptopay-donation.php',
-            'plugin_version' => Helpers::getAddon('donation')->getVersion(),
+            'plugin_file' => $pluginData->Slug,
+            'requires' => $pluginData->RequiresWP,
+            'requires_php' => $pluginData->RequiresPHP,
+            'plugin_version' => $pluginData->Version,
             'icons' => [
                 '2x' => plugin_dir_url(dirname(__FILE__, 2) . '/index.php') . '/assets/images/icon-256x256.png',
                 '1x' => plugin_dir_url(dirname(__FILE__, 2) . '/index.php') . '/assets/images/icon-128x128.png',
@@ -33,8 +35,6 @@ class Loader
                 'donation' => new Models\DonationTransaction()
             ]);
         });
-
-        Hook::addFilter('transaction_status_donation', fn() => 'completed');
 
         if (is_admin()) {
             new TransactionPage(
