@@ -22,7 +22,7 @@ class Integrations
             // Register Gutenberg block
             add_action('enqueue_block_editor_assets', function (): void {
                 global $pagenow;
-                $dependencies = $pagenow === 'widgets.php' ? ['wp-edit-widgets'] : ['wp-editor'];
+                $dependencies = 'widgets.php' === $pagenow ? ['wp-edit-widgets'] : ['wp-editor'];
 
                 Helpers::getAddon('donation')->addScript(
                     'gutenberg.js',
@@ -55,9 +55,9 @@ class Integrations
                     Helpers::getSetting('donationShowInPages') :
                     Helpers::getSetting('donationShowInPosts');
 
-                    if ($showIn == 'show-in-begin') {
+                    if ('show-in-begin' == $showIn) {
                         $content = do_shortcode('[cryptopay-donation-box]') . $content;
-                    } elseif ($showIn == 'show-in-end') {
+                    } elseif ('show-in-end' == $showIn) {
                         $content .= do_shortcode('[cryptopay-donation-box]');
                     }
                 }

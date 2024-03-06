@@ -17,7 +17,7 @@ class DonateBox
     public function __construct()
     {
         add_action('init', function (): void {
-            add_shortcode('cryptopay-donation-box', array($this, 'init'));
+            add_shortcode('cryptopay-donation-box', [$this, 'init']);
         });
     }
 
