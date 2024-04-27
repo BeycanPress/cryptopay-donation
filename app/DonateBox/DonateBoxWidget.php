@@ -55,8 +55,12 @@ class DonateBoxWidget extends \WP_Widget
     // @phpcs:ignore
     public function form($instance)
     {
+        /** @disregard */
+        if (!$this->get_field_id) {
+            return;
+        }
         $title = isset($instance['title']) ? $instance['title'] : null;
-        Helpers::getAddon('donation')->viewEcho('widget-form', compact('title'));
+        return Helpers::getAddon('donation')->view('widget-form', compact('title'));
     }
 
     /**
