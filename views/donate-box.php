@@ -25,7 +25,6 @@
         </div>
         
         <div class="donate-button">
-            <i class="far fa-project-diagram"></i> 
             <?php 
                 if (Helpers::getSetting('mode') == 'network') {
                     echo esc_html__('Select network', 'cryptopay');

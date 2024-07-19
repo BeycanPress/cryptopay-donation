@@ -1,6 +1,5 @@
 (($) => {
     $(document).ready(() => {
-        const cryptopay = $("#cryptopay");
         const donation = $(".cp-donation-container");
 
         donation.find('.choose-donate').click(function(e) {
@@ -21,16 +20,27 @@
             }
         }
 
+        window.CryptoPayApp.events.add('transactionCreated', ({transaction}) => {
+            CryptoPayApp.modal.close();
+            startedApp.store.payment.$reset();
+            donation.find('.set-amount').val('');
+            cpHelpers.successPopup(window.CryptoPayLang.transactionSent, `
+                <a href="${transaction.getUrl()}" target="_blank">
+                    ${window.CryptoPayLang.openInExplorer}
+                </a>
+            `)
+        });
+
         donation.find('.donate-button').click(function() {
             let currency = donation.data('currency').toUpperCase();
             let amount = parseFloat(donation.find('.choose-donate.selected').attr('data-value'));
 
             if (!amount) {
-                return Swal.fire({
+                return cpSwal.fire({
                     title: window.CryptoPayLang.donationAmount,
                     icon: 'info',
                     didOpen: () => {
-                        Swal.hideLoading();
+                        cpSwal.hideLoading();
                     }
                 })
             }
@@ -39,21 +49,7 @@
                 amount, currency
             })
 
-            window.CryptoPayApp.events.add('transactionCreated', ({transaction}) => {
-                cpHelpers.successPopup(window.CryptoPayLang.transactionSent, `
-                    <a href="${transaction.getUrl()}" target="_blank">
-                        ${window.CryptoPayLang.openInExplorer}
-                    </a>
-                `).then(() => {
-                    donation.show();
-                    cryptopay.hide();
-                    startedApp.store.payment.$reset();
-                    donation.find('.set-amount').val('');
-                });
-            });
-
-            donation.hide();
-            cryptopay.show();
+            CryptoPayApp.modal.open();
         });
     });
 })(jQuery);

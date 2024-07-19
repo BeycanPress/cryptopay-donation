@@ -30,7 +30,7 @@ class DonateBox
             return array_merge($lang, Lang::get());
         });
 
-        $cryptopay = (new Payment('donation'))->setConfirmation(false)->html();
+        $cryptopay = (new Payment('donation'))->setConfirmation(false)->modal();
 
         Helpers::getAddon('donation')->addStyle('main.css');
         Helpers::getAddon('donation')->addScript('main.js');
