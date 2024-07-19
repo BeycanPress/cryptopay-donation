@@ -113,7 +113,7 @@ msgid ""
 msgstr ""
 
 #: app/Settings.php:63 app/Settings.php:75
-msgid "Not show"
+msgid "Don't show"
 msgstr ""
 
 #: views/donate-box.php:30

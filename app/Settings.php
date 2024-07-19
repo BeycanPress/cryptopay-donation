@@ -67,7 +67,7 @@ class Settings
                     'type'    => 'select',
                     'help'    => esc_html__('It allows you to add a donation box at the beginning or end of all the posts you share.', 'cryptopay'),
                     'options' => [
-                        'not-show'      => esc_html__('Not show', 'cryptopay'),
+                        'not-show'      => esc_html__('Don\'t show', 'cryptopay'),
                         'show-in-begin' => esc_html__('Show in begin', 'cryptopay'),
                         'show-in-end'   => esc_html__('Show in end', 'cryptopay')
                     ],
@@ -79,7 +79,7 @@ class Settings
                     'type'    => 'select',
                     'help'    => esc_html__('It allows you to add a donation box at the beginning or end of all the pages you share.', 'cryptopay'),
                     'options' => [
-                        'not-show'      => esc_html__('Not show', 'cryptopay'),
+                        'not-show'      => esc_html__('Don\'t show', 'cryptopay'),
                         'show-in-begin' => esc_html__('Show in begin', 'cryptopay'),
                         'show-in-end'   => esc_html__('Show in end', 'cryptopay')
                     ],
