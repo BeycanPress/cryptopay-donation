@@ -20,13 +20,7 @@ class Loader
 
         new Updater([
             'plugin_file' => $pluginData->Slug,
-            'requires' => $pluginData->RequiresWP,
-            'requires_php' => $pluginData->RequiresPHP,
-            'plugin_version' => $pluginData->Version,
-            'icons' => [
-                '2x' => plugin_dir_url(dirname(__FILE__, 2) . '/index.php') . '/assets/images/icon-256x256.png',
-                '1x' => plugin_dir_url(dirname(__FILE__, 2) . '/index.php') . '/assets/images/icon-128x128.png',
-            ]
+            'plugin_version' => $pluginData->Version
         ]);
 
         Hook::addFilter('apply_discount_donation', '__return_false');
