@@ -98,7 +98,7 @@ jobs:
           -F "wpTestedVersion=$WP_TESTED_VERSION" \
           -F "file=@$RELEASE_ZIP_NAME;type=application/zip" \
           -H "Authorization: Bearer ${{ secrets.UPDATER_API_SECRET }}" \
-          https://updater.beycanpress.net/?rest_route=/fx-api/update-releases
+          https://services.beycanpress.com/wp-json/updater/update-releases
 
       - name: Delete ZIP
         run: |
