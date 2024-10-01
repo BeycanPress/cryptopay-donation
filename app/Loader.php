@@ -16,9 +16,7 @@ class Loader
      */
     public function __construct()
     {
-        $pluginData = Helpers::getAddon('donation')->getData();
-
-        new Updater($pluginData->Slug);
+        new Updater(Helpers::getAddon('donation')->getData()->Slug);
 
         Hook::addFilter('apply_discount_donation', '__return_false');
         Hook::addFilter('models', function ($models) {

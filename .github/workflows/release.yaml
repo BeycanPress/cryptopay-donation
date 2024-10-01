@@ -10,7 +10,7 @@ on:
 env:
   RELEASE_ID: 22
   WP_MIN_VERSION: 5.0
-  WP_TESTED_VERSION: 6.6.1
+  WP_TESTED_VERSION: 6.6.2
   FOLDER_NAME: cryptopay-donation
   RELEASE_ZIP_NAME: cryptopay-donation.zip
   IGNORED_FILES_LIST: |
