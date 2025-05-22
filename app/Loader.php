@@ -26,13 +26,15 @@ class Loader
         });
 
         if (is_admin()) {
-            new TransactionPage(
-                esc_html__('Donation transactions', 'cryptopay'),
-                'donation',
-                3,
-                [],
-                ['orderId', 'status', 'updatedAt']
-            );
+            add_action('init', function (): void {
+                new TransactionPage(
+                    esc_html__('Donation transactions', 'cryptopay'),
+                    'donation',
+                    3,
+                    [],
+                    ['orderId', 'status', 'updatedAt']
+                );
+            });
         } else {
             new DonateBox\DonateBox();
         }
